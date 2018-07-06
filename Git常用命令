@@ -1,0 +1,94 @@
+git是一个高效的项目版本管理系统。其工作区主要分为四个部分：
+Workspace：本地工作区
+Index / Stage：暂存区
+Repository：仓库区（或本地仓库）
+Remote：远程仓库
+工作流总结：其关系为执行add命令之后将本地工作区文件添加至暂存区，执行commit命令之后，存放在暂存区的文件添加至本地仓库，push命令将本地仓库中的文件
+更新至远程仓库。过程中还会涉及到文件删除，操作撤销以及与分支相关的操作。其常用命令如下
+1、新建项目
+$ git init
+$ git init [project-name]
+$ git clone [url]
+
+2、配置
+# 显示当前的Git配置
+$ git config --list
+# 编辑Git配置文件
+$ git config -e [--global]
+# 设置提交代码时的用户信息
+$ git config [--global] user.name "[name]"
+$ git config [--global] user.email "[email address]"
+
+3、添加文件
+# 添加指定文件到暂存区
+$ git add [file1] [file2] ...
+# 添加当前目录的所有文件到暂存区
+$ git add .
+
+4、删除文件
+# 删除工作区文件，并且将这次删除放入暂存区
+$ git rm [file1] [file2] ...
+# 改名文件，并且将这个改名放入暂存区
+$ git mv [file-original] [file-renamed]
+
+5、提交代码
+# 提交暂存区到仓库区
+$ git commit -m [message]
+# 提交暂存区的指定文件到仓库区
+$ git commit [file1] [file2] ... -m [message]
+# 提交工作区自上次commit之后的变化，直接到仓库区
+$ git commit -a
+# 使用一次新的commit，替代上一次提交
+# 如果代码没有任何新变化，则用来改写上一次commit的提交信息
+$ git commit --amend -m [message]
+
+
+6、同步远程仓库
+# 下载远程仓库的所有变动
+$ git fetch [remote]
+# 取回远程仓库的变化，并与本地分支合并
+$ git pull [remote] [branch]
+# 上传本地指定分支到远程仓库
+$ git push [remote] [branch]
+# 推送所有分支到远程仓库
+$ git push [remote] --all
+
+7、分支
+# 列出所有本地分支
+$ git branch
+# 列出所有远程分支
+$ git branch -r
+# 新建一个分支，但依然停留在当前分支
+$ git branch [branch-name]
+# 新建一个分支，并切换到该分支
+$ git checkout -b [branch]
+# 切换到指定分支，并更新工作区
+$ git checkout [branch-name]
+# 删除分支
+$ git branch -d [branch-name]
+# 删除远程分支
+$ git push origin --delete [branch-name]
+$ git branch -dr [remote/branch]
+
+
+8、查看信息
+# 显示有变更的文件
+$ git status
+# 显示当前分支的版本历史
+$ git log
+# 显示commit历史，以及每次commit发生变更的文件
+$ git log --stat
+# 显示暂存区和工作区的代码差异
+$ git diff
+
+9、撤销
+# 恢复暂存区的指定文件到工作区
+$ git checkout [file]
+# 恢复某个commit的指定文件到暂存区和工作区
+$ git checkout [commit] [file]
+# 恢复暂存区的所有文件到工作区
+$ git checkout .
+# 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
+$ git reset [file]
+# 重置暂存区与工作区，与上一次commit保持一致
+$ git reset --hard
