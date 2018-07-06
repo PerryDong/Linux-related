@@ -13,6 +13,7 @@ $ git clone [url]
 2、配置
 # 显示当前的Git配置
 $ git config --list
+
 # 编辑Git配置文件
 $ git config -e [--global]
 # 设置提交代码时的用户信息
@@ -22,6 +23,7 @@ $ git config [--global] user.email "[email address]"
 3、添加文件
 # 添加指定文件到暂存区
 $ git add [file1] [file2] ...
+
 # 添加当前目录的所有文件到暂存区
 $ git add .
 
@@ -46,6 +48,7 @@ $ git commit --amend -m [message]
 6、同步远程仓库
 # 下载远程仓库的所有变动
 $ git fetch [remote]
+
 # 取回远程仓库的变化，并与本地分支合并
 $ git pull [remote] [branch]
 # 上传本地指定分支到远程仓库
@@ -58,6 +61,7 @@ $ git push [remote] --all
 $ git branch
 # 列出所有远程分支
 $ git branch -r
+
 # 新建一个分支，但依然停留在当前分支
 $ git branch [branch-name]
 # 新建一个分支，并切换到该分支
